@@ -10,7 +10,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.easylease.TestJersey2.Dao.UserDao;
+import com.easylease.TestJersey2.Model.User;
+import com.easylease.TestJersey2.Service.MyService;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -31,17 +32,9 @@ public class MyResource {
     @ApiOperation(value = "Test Swagger",
     notes = "Test Swagger note",
     response = String.class,
-    responseContainer = "String")
-    public String getIt() {
-    	UserDao dao = null;
-    	try {
-			dao = new UserDao();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	return dao.getUserById(1);
-    	//return dao.getUserById(1);
+    responseContainer = "User")
+    public User getIt() {
+        MyService service = new MyService();
+        return service.getUsernameById(1);
     }
 }

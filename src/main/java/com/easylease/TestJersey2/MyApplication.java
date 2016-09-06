@@ -1,3 +1,6 @@
+// shiqudev-env.us-west-2.elasticbeanstalk.com for prod
+// localhost:8080/TestJersey2 for dev
+
 package com.easylease.TestJersey2;
 
 import io.swagger.jaxrs.config.BeanConfig;
@@ -21,8 +24,8 @@ public class MyApplication extends ResourceConfig  {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.2");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("localhost:8080");
-        beanConfig.setBasePath("/TestJersey2/api");
+        beanConfig.setHost("localhost:8080/TestJersey2");
+        beanConfig.setBasePath("/api");
         beanConfig.setResourcePackage("com.easylease.TestJersey2");
         beanConfig.setScan(true);
     }
