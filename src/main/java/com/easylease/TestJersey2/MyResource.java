@@ -28,13 +28,18 @@ public class MyResource {
      * @return String that will be returned as a text/plain response.
      */
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Test Swagger",
     notes = "Test Swagger note",
     response = String.class,
     responseContainer = "User")
     public User getIt() {
-        MyService service = new MyService();
-        return service.getUsernameById(1);
+        //MyService service = new MyService();
+    	User user =new User();
+    	user.user_id = (long) 1;
+    	user.user_firstname = "Ju";
+    	user.user_lastname = "Huo";
+    	user.user_email = "hjtorch@gmail.com";
+        return user;
     }
 }

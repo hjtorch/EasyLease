@@ -1,10 +1,10 @@
 package com.easylease.TestJersey2.Model;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
 public class User {
 
-	public Long id;
-	public String name;
+	public Long user_id;
+	public String user_firstname;
+	public String user_lastname;
+	public String user_email;
+	
 }

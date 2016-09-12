@@ -36,7 +36,10 @@
       if (url && url.length > 1) {
         url = decodeURIComponent(url[1]);
       } else {
-        url = "http://localhost:8080/TestJersey2/api/swagger.json";
+    	// for local
+        //url = "http://localhost:8080/TestJersey2/api/swagger.json";
+    	// for deployment
+        url = "http://candy-env.us-west-2.elasticbeanstalk.com/api/swagger.json";
       }
 
       hljs.configure({

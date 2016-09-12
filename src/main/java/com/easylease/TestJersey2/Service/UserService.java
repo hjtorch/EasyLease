@@ -1,16 +1,16 @@
 package com.easylease.TestJersey2.Service;
-import com.easylease.TestJersey2.Model.User;
+
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
 import com.easylease.TestJersey2.Dao.UserDao;
 import com.easylease.TestJersey2.Model.User;
 
-public class MyService {
-
+public class UserService {
 	@Transactional
-	public User getUsernameById(int id){
+	public List<User> getAllUsers(){
     	UserDao dao = null;
     	try {
 			dao = new UserDao();
@@ -19,11 +19,6 @@ public class MyService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	//return "Hello World";
-    	String username = dao.getUserById(id);
-    	User user = new User();
-    	//user.id = (long) id;
-    	//user.name = username;
-    	return user;
+    	return dao.getAllUsers();
 	}
 }

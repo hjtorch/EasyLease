@@ -2,6 +2,7 @@ package com.easylease.TestJersey2.Dao;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -9,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.easylease.TestJersey2.Mapper.UserMapper;
+import com.easylease.TestJersey2.Model.User;
 
 
 public class UserDao {
@@ -28,6 +30,16 @@ public class UserDao {
 		} finally {
 		  session.close();
 		}		
+	}
+	
+	public List<User> getAllUsers(){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+		  UserMapper mapper = session.getMapper(UserMapper.class);
+		  return mapper.getAllUsers();
+		} finally {
+		  session.close();
+		}
 	}
 
 }

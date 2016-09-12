@@ -28,7 +28,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://aa1hgi4of45in6e.cdew6yvmfteh.us-west-2.rds.amazonaws.com:3306/ebdb"/>
+        <property name="url" value="jdbc:mysql://aayxkduxxiwhyz.cdew6yvmfteh.us-west-2.rds.amazonaws.com:3306/ebdb"/>
         <property name="username" value="huoju"/>
         <property name="password" value="ffantasy"/>
       </dataSource>
