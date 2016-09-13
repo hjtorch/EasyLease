@@ -16,6 +16,7 @@ public class MyApplication extends ResourceConfig  {
         Set<Class<?>> resources = new HashSet<>();  
         resources.add(com.easylease.TestJersey2.MyResource.class);
         resources.add(com.easylease.TestJersey2.Resource.UserResource.class);
+        resources.add(com.easylease.TestJersey2.Resource.ItemResource.class);
         resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);  
         resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
         resources.add(org.glassfish.jersey.moxy.json.MoxyJsonFeature.class);
@@ -25,7 +26,7 @@ public class MyApplication extends ResourceConfig  {
 
         
         BeanConfig beanConfig = new BeanConfig();
-        beanConfig.setVersion("1.0.2");
+        beanConfig.setVersion("1.0.3");
         beanConfig.setSchemes(new String[]{"http"});
         // for deployment
         beanConfig.setHost("candy-env.us-west-2.elasticbeanstalk.com");

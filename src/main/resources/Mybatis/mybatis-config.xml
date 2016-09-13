@@ -36,5 +36,6 @@
   </environments>   
   <mappers>
 	<mapper resource="Mybatis/UserMapper.xml"/>
+	<mapper resource="Mybatis/ItemMapper.xml"/>
   </mappers>
 </configuration>
