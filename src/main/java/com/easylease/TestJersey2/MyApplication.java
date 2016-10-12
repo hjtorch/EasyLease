@@ -9,8 +9,10 @@ import java.util.HashSet;
 import java.util.Set;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import com.easylease.TestJersey2.Service.CORSResponseFilter;
+
 public class MyApplication extends ResourceConfig  {
-    public MyApplication() { 
+    public MyApplication() {
         packages("com.easylease.TestJersey2"); 
         // register swagger
         Set<Class<?>> resources = new HashSet<>();  
@@ -22,8 +24,8 @@ public class MyApplication extends ResourceConfig  {
         resources.add(org.glassfish.jersey.moxy.json.MoxyJsonFeature.class);
         resources.add(JsonMoxyConfigurationContextResolver.class);
 
-        registerClasses(resources);  
-
+        registerClasses(resources);
+        register(CORSResponseFilter.class);
         
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.3");
