@@ -9,37 +9,34 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.easylease.TestJersey2.Mapper.UserMapper;
-import com.easylease.TestJersey2.Model.User;
+import com.easylease.TestJersey2.Mapper.PartyMapper;
+import com.easylease.TestJersey2.Model.Party;
 
-
-public class UserDao {
-	
+public class PartyDao {
 	private SqlSessionFactory sqlSessionFactory = null;
-	public UserDao() throws IOException{
+	public PartyDao() throws IOException{
 		String resource = "Mybatis/mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 	}
 	
-	public String getUserById(int id){
+	public List<Party> getAllParties(){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-		  UserMapper mapper = session.getMapper(UserMapper.class);
-		  return mapper.getUserById(id);
-		} finally {
-		  session.close();
-		}		
-	}
-	
-	public List<User> getAllUsers(){
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-		  UserMapper mapper = session.getMapper(UserMapper.class);
-		  return mapper.getAllUsers();
+			PartyMapper mapper = session.getMapper(PartyMapper.class);
+		  return mapper.getAllParties();
 		} finally {
 		  session.close();
 		}
 	}
-
+	
+	public void createParty(Party party){
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			PartyMapper mapper = session.getMapper(PartyMapper.class);
+		  mapper.createParty(party);
+		} finally {
+		  session.close();
+		}
+	}
 }

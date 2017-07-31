@@ -28,14 +28,13 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://aayxkduxxiwhyz.cdew6yvmfteh.us-west-2.rds.amazonaws.com:3306/ebdb"/>
-        <property name="username" value="huoju"/>
-        <property name="password" value="ffantasy"/>
+        <property name="url" value="jdbc:mysql://aacqo8b59vsxh5.c09tvecicvix.us-west-2.rds.amazonaws.com:3306/ebdb"/>
+        <property name="username" value="admin"/>
+        <property name="password" value="password"/>
       </dataSource>
     </environment>
   </environments>   
   <mappers>
-	<mapper resource="Mybatis/UserMapper.xml"/>
-	<mapper resource="Mybatis/ItemMapper.xml"/>
+	<mapper resource="Mybatis/PartyMapper.xml"/>
   </mappers>
 </configuration>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TestJersey2
+Bundle-SymbolicName: TestJersey2
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.easylease.TestJersey2,
+ com.easylease.TestJersey2.Dao,
+ com.easylease.TestJersey2.Mapper,
+ com.easylease.TestJersey2.Model,
+ com.easylease.TestJersey2.Resource,
+ com.easylease.TestJersey2.Service
