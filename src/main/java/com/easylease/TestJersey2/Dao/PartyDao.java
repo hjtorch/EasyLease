@@ -23,20 +23,21 @@ public class PartyDao {
 	public List<Party> getAllParties(){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			PartyMapper mapper = session.getMapper(PartyMapper.class);
-		  return mapper.getAllParties();
+		    PartyMapper mapper = session.getMapper(PartyMapper.class);
+		    return mapper.getAllParties();
 		} finally {
-		  session.close();
+		    session.close();
 		}
 	}
 	
 	public void createParty(Party party){
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			PartyMapper mapper = session.getMapper(PartyMapper.class);
-		  mapper.createParty(party);
+		    PartyMapper mapper = session.getMapper(PartyMapper.class);
+		    mapper.createParty(party);
+		    session.commit();
 		} finally {
-		  session.close();
+		    session.close();
 		}
 	}
 }

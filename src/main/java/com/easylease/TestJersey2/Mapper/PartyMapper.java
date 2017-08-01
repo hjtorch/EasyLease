@@ -9,9 +9,8 @@ import com.easylease.TestJersey2.Model.Party;
 
 public interface PartyMapper {
 	  @Select("SELECT * FROM party")
-	  List<Party> getAllParties();
+	  public List<Party> getAllParties();
 	  
-	  @Insert("INSERT into party (owner, owner_thumbnail, title, date, time"
-	  		+ "values (owner, owner_thumbnail, title,CURDATE(),CURTIME())")
-	  void createParty(Party party);
+	  @Insert("insert into party (owner, owner_thumbnail, title, date, time) values (#{owner}, #{owner_thumbnail}, #{title}, CURDATE(), CURTIME())")
+	  public int createParty(Party party);
 }

@@ -3,9 +3,13 @@ package com.easylease.TestJersey2.Resource;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import java.sql.Time;
+import java.util.Calendar;
+import java.sql.Date;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -33,20 +37,22 @@ public class PartyResource {
     
     @POST
     @Path("/createParty")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
     @ApiOperation(value = "create a new party",
     notes = "create a new party")
-    public Party createParty(Party party) {
+    public Party createParty(
+    		@FormParam(value = "title") String title,
+    		@FormParam(value = "owner") String owner,
+    		@FormParam(value = "owner_thumbnail") String owner_thumbnail) {
     	
-    	if(party == null) {
-    		System.out.println("party is empty");
-    	}
-    	//PartyService service = new PartyService();
-    	System.out.println(party.getTitle());
-    	//System.out.println(party.owner_thumbnail);
-    	//System.out.println(party.getTitle());
-    	//service.createParty(party);
-		return null;
+    	PartyService service = new PartyService();
+    	Party party = new Party();
+    	party.title = title;
+    	party.owner = owner;
+    	party.owner_thumbnail = owner_thumbnail;
+    	
+    	service.createParty(party);
+    	
+    	return party;
     }
 }
